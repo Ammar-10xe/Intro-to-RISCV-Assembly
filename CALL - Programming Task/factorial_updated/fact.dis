@@ -1,0 +1,40 @@
+
+fact.elf:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+80000000 <_start>:
+80000000:	00001297          	auipc	t0,0x1
+80000004:	00028293          	mv	t0,t0
+80000008:	0002a503          	lw	a0,0(t0) # 80001000 <n>
+8000000c:	010000ef          	jal	ra,8000001c <factorial>
+80000010:	00001317          	auipc	t1,0x1
+80000014:	ff430313          	addi	t1,t1,-12 # 80001004 <result>
+80000018:	00a32023          	sw	a0,0(t1)
+
+8000001c <factorial>:
+8000001c:	ff810113          	addi	sp,sp,-8
+80000020:	00112223          	sw	ra,4(sp)
+80000024:	00a12023          	sw	a0,0(sp)
+80000028:	fff50293          	addi	t0,a0,-1
+8000002c:	00504863          	bgtz	t0,8000003c <Loop>
+80000030:	00100513          	li	a0,1
+80000034:	00810113          	addi	sp,sp,8
+80000038:	000080e7          	jalr	ra
+
+8000003c <Loop>:
+8000003c:	fff50513          	addi	a0,a0,-1
+80000040:	fddff0ef          	jal	ra,8000001c <factorial>
+80000044:	00050313          	mv	t1,a0
+80000048:	00012503          	lw	a0,0(sp)
+8000004c:	00412083          	lw	ra,4(sp)
+80000050:	00810113          	addi	sp,sp,8
+80000054:	02650533          	mul	a0,a0,t1
+80000058:	000080e7          	jalr	ra
+
+8000005c <write_tohost>:
+8000005c:	00100093          	li	ra,1
+80000060:	00010f17          	auipc	t5,0x10
+80000064:	fa1f2023          	sw	ra,-96(t5) # 80010000 <tohost>
+80000068:	ff5ff06f          	j	8000005c <write_tohost>
