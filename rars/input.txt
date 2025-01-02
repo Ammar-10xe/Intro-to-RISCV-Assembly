@@ -1,0 +1,15 @@
+tsk; v; kZ; vMod;Z;40
+ABC11;Goodevening;3;3;5;10
+B12;goodday;100;11;78;12
+B11;table;10;0;55;11
+C1;maple;0;8;17;11;17
+D21;bridge;2;10;15;23
+D22;bridge;2;10;15;23
+D22;bridge;2;10;15;23
+D23;bridge;3;10;15;23
+D24;bridge;4;1;17;23
+D25;bridge;4;18;18;23
+D25;bridge;4;1;19;23
+D26;bridge;4;1;18;18
+ZD26;bridge;4;1;18;18
+
